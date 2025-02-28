@@ -1,0 +1,22 @@
+import os
+import time
+
+def ping_host(host, count=4):
+    print(f"Pinging {host}...")
+    for i in range(count):
+        response = os.system(f"ping -c 1 {host}")
+        if response == 0:
+            print(f"Attempt {i+1}: {host} is reachable")
+        else:
+            print(f"Attempt {i+1}: {host} is NOT reachable")
+        time.sleep(1)
+
+if __name__ == "__main__":
+    # Run on phone to ping tablet
+    # ping_host("192.168.100.24")
+    # Run on tablet to ping phone
+    # ping_host("192.168.100.152")
+    
+    # Uncomment the one you need based on device
+    ping_host("192.168.100.24")  # Phone version
+    # ping_host("192.168.100.152")  # Tablet version
